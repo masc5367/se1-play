@@ -15,10 +15,10 @@ This includes libraries for:
 - `junit-platform-console-standalone-1.9.2.jar`: JUnit test runner
 
 
-Libraries are organized in folders:
+Libraries are organized in folders with *.jar*-files:
 
 ```sh
-<se1-play>              # project directory
+<libs>                  # branch directory
  |
  +-<jackson>                    # library for processing JSON data in Java
  |  +--jackson-annotations-2.13.0.jar
@@ -42,4 +42,28 @@ Libraries are organized in folders:
     +--log4j-core-2.23.1.jar
     +--log4j-slf4j2-impl-2.23.1.jar
     +--slf4j-api-2.0.16.jar
+```
+
+
+Checkout the `libs` branch:
+
+```sh
+git clone -b libs --single-branch git@github.com:sgra64/se1-play.git libs
+
+ls -la libs                     # show content of new 'libs' directory
+```
+
+Output shows the content of the new `libs` directory:
+
+```
+total 2584
+drwxr-xr-x 1       0 Oct  3 19:11 ./
+drwxr-xr-x 1       0 Oct  3 18:42 ../
+drwxr-xr-x 1       0 Oct  3 19:18 .git/
+-rw-r--r-- 1    1932 Oct  3 19:19 README.md
+drwxr-xr-x 1       0 Oct  3 19:20 jackson/
+drwxr-xr-x 1       0 Oct  3 19:20 jacoco/
+drwxr-xr-x 1       0 Oct  3 19:20 junit/
+-rw-r--r-- 1 2614420 Oct  3 19:20 junit-platform-console-standalone-1.9.2.jar
+drwxr-xr-x 1       0 Oct  3 19:20 logging/
 ```
