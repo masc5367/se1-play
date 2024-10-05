@@ -39,7 +39,6 @@ Sie zeigen Ihre Antworten bitte in der Übung (kein Moodle upload).
   - `f.2` Nennen Sie drei Aufgaben der Runtime im Projekt *"se1-play"*?
 
 
-
 &nbsp;
 
 ## Fragen A

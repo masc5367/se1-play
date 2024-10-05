@@ -54,27 +54,10 @@ in der IDE und im Terminal ausführen können.
 
     - [[1 Pkt]](#ausgabe-des-runtime-logs) - Geben Sie den *Runtime* `log` aus.
 
-
-1. Abnahme in der Übung
-
+1. [[Abnahme]](#abnahme-in-der-übung) in der Übung.
 
 
 ---
-
-<!-- 
-Beantworten Sie die Fragen zu:
-
-- a) `[1 Pkt]` - Projekt-Verzeichnis
-
-- b) `[2 Pkt]` - Setup-Prozess des Projekts
-    - Bau aus Branches, "Sourcing", Projekt-Environment
-
-- c) `[2 Pkt]` - Build-Prozess des Projekts
-    - Compilieren, Paketieren, Javadoc
-
-- d) `[2 Pkt]` - Runtime, Programmausführung
-    - Konfiguration, Logging
- -->
 
 &nbsp;
 
