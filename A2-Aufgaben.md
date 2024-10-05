@@ -1,9 +1,6 @@
 # Aufgabe A2
 `10 Punkte`
 
-Das Projekt [*"se1-play"*](https://github.com/sgra64/se1-play) ist
-ein profesionell aufgebautes Java-Projekt.
-
 Voraussetzungen für die Übung ist, dass Sie aus `Übung A1` eine korrekte
 Terminalkonfiguration, eine IDE (*VSCode*, *eclipse* oder *IntelliJ*)
 sowie das `Java SDK` (Version 21 oder höher) installiert haben.

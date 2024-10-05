@@ -12,20 +12,20 @@ alle Aspekte der Planung, Entwicklung und Organisation von Software-Projekten
 
 - Ein *Software Projekt* (technisch) ist die Organisationsform von Quellcode
     und aller weiter benötigten Software-Artefakten (Bibliotheken, Werkzeuge,
-    usw.), die für die Entwicklung, die Verwaltung und Auslieferung von Software
-    erforderlich sind.
+    Konfigurationen usw.), die für die Entwicklung, Verwaltung und Auslieferung
+    der Software erforderlich sind.
 
 - Ein *ingenieursgemäß* organisiertes *Software Projekt* besitzt:
 
     - eine klare Struktur der Dinge (Artefakte, Dateien, Verzeichnisse für
-        Quellcode, Zwischenstände, Bibliotheken, Werkzeuge) und
+        Quellcode, Konfigurationen, Zwischenstände, Bibliotheken, Werkzeuge) und
 
     - eine klare Struktur der Vorgänge und Prozesse, u.a. für *Installation*,
         *Setup*, *Build*, *Test*, *Release* (Auslieferung), *Integration*,
         *Deployment* usw.
 
-Ziel der Übungen ist, ein Verständnis und praktische Fähigkeiten in einem
-ingenieursgemäß organisierten Java-Projekt zu vermitteln.
+Ziel der Übungen ist, ein Verständnis und praktische Fähigkeiten dafür
+zu vermitteln.
 
 Als Beispiel dient das Projekt
 [*"se1-play"*](https://github.com/sgra64/se1-play), in dem heute weithin
