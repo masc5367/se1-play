@@ -33,48 +33,30 @@ Als Beispiel dient das Projekt:
 
 Für die Übungen führen Sie bitte die folgenden Aufgaben (*A1, A2*)
 aus und beantworten Sie anschliessend die Fragen (*A3*).
+Die Aufgaben werden in den Übungen erklärt und durchgeführt.
 
-- [A1-JDK-IDE-Terminal-setup](A1-JDK-IDE-Terminal-setup.md)
-
+- [A1 - JDK-IDE-Terminal-setup](A1-JDK-IDE-Terminal-setup.md) - `[5 Pkt]`
     - *Java Development Kit (JDK), Version 21 (LTS)* oder höher,
-
     - *Integrated Development Environment (IDE)* - *VSCode*, *eclipse*, *IntelliJ*.
-
     - *Terminalsoftware* mit Grundverständnis für:
-
         - *Terminal* und *Shell*, [*link*](https://github.com/sgra64/markup/blob/main/terminal/01-terminal-and-shell.md).
-
         - *Filesystem* und *$HOME directory*, [*link*](https://github.com/sgra64/markup/blob/main/terminal/02-filesystem-and-home.md).
-
-        - *Prozesse" und *Umgebungs-Variables*, [*link*](https://github.com/sgra64/markup/blob/main/terminal/03-processes-and-environment.md).
-
-        - *Dotfiles*, [*link*](https://github.com/sgra64/markup/blob/main/terminal/04-dotfiles.md).
-
+        - *Prozesse* und *Umgebungs-Variables*, [*link*](https://github.com/sgra64/markup/blob/main/terminal/03-processes-and-environment.md).
+        - *Dotfiles*, [*link*](https://github.com/sgra64/markup/blob/main/terminal/04-dotfiles.md) -
+            siehe auch Prof. Graupner's [*dotfiles*](https://github.com/sgra64/dotfiles).
         - *Aliases* und *Funktionen*, [*link*](https://github.com/sgra64/markup/blob/main/terminal/05-aliases-and-functions.md).
 
+- [A2 - Aufgaben](A2-Aufgaben.md) - `[10 Pkt]`
+    - für *Installation*,
+    - *Setup* und
+    - *Bau (Build)* des Projekts
+        [*"se1-play"*](https://github.com/sgra64/se1-play).
 
-- [A2-Aufgaben](A2-Aufgaben.md) - für
-
-    - die *Installation*,
-
-    - das *Setup* und
-
-    - den *Bau (Build)* des Projekts
-        [*"se1-play"*](https://github.com/sgra64/se1-play), `[10 Pkt]`.
-
-
-- [A3-Fragen](A3-Fragen.md) - zu den Themen:
-
+- [A3 - Fragen](A3-Fragen.md) - zu den behandelten Themen - `[6 Pkt]`
     - Projektverzeichnis, Projektinhalt und Projektstruktur (*scaffold*).
-
     - *Setup Prozess* mit dem Bau des Projekts aus Branches, *Sourcing*, Projekt Environment.
-
     - *Build Prozess* mit Compilieren, Unit-Tests sowie Paketieren in das finales Endprodukt.
-
-    - Ausführung mit: Konfiguration, Logging, Aufgaben einer *Runtime*
-        <br>`[6 Pkt]`.
-
-Die Aufgaben werden in den Übungen erklärt und durchgeführt.
+    - Ausführung mit: Konfiguration, Logging, Aufgaben einer *Runtime*.
 
 
 &nbsp;
@@ -105,10 +87,10 @@ Ausführung im Terminal:
 ls -la                      # Anzeige des Inhalts des Projektverzeichnisses
 
 # Ausführung des Programms
-java application.Application Tim Tom Anna
+java application.Application Tim Eric Anna
 
 # Ausführung des auslieferbaren Pakets (.jar)
-java -jar bin/application-1.0.0-SNAPSHOT.jar Tim Tom Anna
+java -jar bin/application-1.0.0-SNAPSHOT.jar Tim Eric Anna
 ```
 
 <img src="img/run-2-terminal-with-names.png" width="600"/>
@@ -120,6 +102,10 @@ Die Ausführung der *JUnit-Tests* im Terminal:
 
 ```sh
 mk run-tests                # Ausführung der JUnit-Tests
+
+java -jar ./branches/libs/junit-platform-console-standalone-1.9.2.jar \
+  $(eval echo $JUNIT_OPTIONS) \
+  --scan-class-path
 ```
 
 <img src="img/build-2-tests.png" width="600"/>

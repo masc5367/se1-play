@@ -1,4 +1,4 @@
-# Aufgabe A3 - Fragen
+# Aufgabe A3: *Fragen*
 `6 Punkte`
 
 <!-- [*"se1-play"*](https://github.com/sgra64/se1-play) -->

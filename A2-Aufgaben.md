@@ -1,4 +1,4 @@
-# Aufgabe A2 - Projekt Installation, Setup und Bau
+# Aufgabe A2: *Projekt Installation, Setup und Bau*
 `10 Punkte`
 
 Voraussetzungen für die Übung ist, dass Sie aus

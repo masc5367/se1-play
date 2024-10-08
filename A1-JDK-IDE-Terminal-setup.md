@@ -1,4 +1,4 @@
-# Aufgabe A1 - JDK, IDE und Terminal Setup
+# Aufgabe A1: *JDK, IDE und Terminal Setup*
 `5 Punkte`
 
 
