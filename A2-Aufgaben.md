@@ -1,9 +1,11 @@
-# Aufgabe A2
+# Aufgabe A2 - Projekt Installation, Setup und Bau
 `10 Punkte`
 
-Voraussetzungen für die Übung ist, dass Sie aus `Übung A1` eine korrekte
-Terminalkonfiguration, eine IDE (*VSCode*, *eclipse* oder *IntelliJ*)
-sowie das `Java SDK` (Version 21 oder höher) installiert haben.
+Voraussetzungen für die Übung ist, dass Sie aus
+[*Übung A1*](A1-JDK-und-Terminal.md)
+eine korrekte Terminalkonfiguration, eine IDE (*VSCode*, *eclipse* oder *IntelliJ*)
+sowie das `Java JDK` (Version 21 oder höher) installiert haben.
+
 Prüfen Sie bitte diese [Voraussetzungen](#voraussetzungen) als ersten Schritt.
 
 Lesen Sie die Einführung in das Projekt

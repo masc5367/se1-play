@@ -1,0 +1,140 @@
+sourcing: .env.sh
+setting the project environment with:
+ - environment variables:
+    - PROJECT_PATH
+    - CLASSPATH
+    - MODULEPATH
+    - JDK_JAVAC_OPTIONS
+    - JDK_JAVADOC_OPTIONS
+    - JUNIT_OPTIONS
+    - JACOCO_AGENT
+ - files created:
+    -  ln -s ./branches/libs libs
+    - .classpath
+    - .project
+    - .vscode/.classpath
+ - functions and aliases:
+    - aliases: mk, build, wipe, clean
+    - functions: make, show, cmd, copy, javac_version, coverage_report
+\\
+project environment is set (use 'wipe' to reset)
+
+javac $(find src -name '*.java') -d bin/classes; \
+copy resources bin/resources
+done.
+
+javac $(find tests -name '*.java') -d bin/test-classes; \
+copy resources bin/resources
+done.
+
+java -jar ./branches/libs/junit-platform-console-standalone-1.9.2.jar \
+  $(eval echo $JUNIT_OPTIONS) \
+  --scan-class-path
+
+setUpBeforeClass() runs once before any @Test method
+setUpBeforeEach() runs before each @Test method
+tearDownAfterEach() runs after each @Test method
+setUpBeforeEach() runs before each @Test method
+tearDownAfterEach() runs after each @Test method
+tearDownAfterClass() runs after all @Test methods have finished
+
+Thanks for using JUnit! Support its development at https://junit.org/sponsoring
+╷
+├─ JUnit Jupiter ✔
+│  └─ Application_0_always_pass_Tests ✔
+│     ├─ test_001_always_pass() ✔
+│     └─ test_002_always_pass() ✔
+├─ JUnit Vintage ✔
+└─ JUnit Platform Suite ✔
+
+Test run finished after 156 ms
+[         4 containers found      ]
+[         0 containers skipped    ]
+[         4 containers started    ]
+[         0 containers aborted    ]
+[         4 containers successful ]
+[         0 containers failed     ]
+[         2 tests found           ]
+[         0 tests skipped         ]
+[         2 tests started         ]
+[         0 tests aborted         ]
+[         2 tests successful      ]
+[         0 tests failed          ]
+done.
+
+tar cv libs/{jackson,logging}*/* | tar -C bin -xvf - ; \
+jar -c -v -f bin/application-1.0.0-SNAPSHOT.jar \
+    -m resources/META-INF/MANIFEST.MF \
+    -C bin/classes . ; \
+jar uvf bin/application-1.0.0-SNAPSHOT.jar -C bin resources
+libs/jackson/jackson-annotations-2.13.0.jar
+libs/jackson/jackson-annotations-2.13.0.jar
+libs/jackson/jackson-core-2.13.0.jar
+libs/jackson/jackson-core-2.13.0.jar
+libs/jackson/jackson-databind-2.13.0.jar
+libs/jackson/jackson-databind-2.13.0.jar
+libs/logging/log4j-api-2.23.1.jar
+libs/logging/log4j-api-2.23.1.jar
+libs/logging/log4j-core-2.23.1.jar
+libs/logging/log4j-core-2.23.1.jar
+libs/logging/log4j-slf4j2-impl-2.23.1.jar
+libs/logging/log4j-slf4j2-impl-2.23.1.jar
+libs/logging/slf4j-api-2.0.16.jar
+libs/logging/slf4j-api-2.0.16.jar
+added manifest
+added module-info: module-info.class
+adding: application/(in = 0) (out= 0)(stored 0%)
+adding: application/Application.class(in = 1705) (out= 959)(deflated 43%)
+adding: application/Runtime$Run.class(in = 521) (out= 312)(deflated 40%)
+adding: application/Runtime$Runnable.class(in = 263) (out= 203)(deflated 22%)
+adding: application/Runtime$StartUpStatus.class(in = 1272) (out= 655)(deflated 4
+8%)
+adding: application/Runtime$SupplierWithExceptions.class(in = 468) (out= 281)(de
+flated 39%)
+adding: application/Runtime.class(in = 18226) (out= 7749)(deflated 57%)
+adding: application/package-info.class(in = 117) (out= 101)(deflated 13%)
+adding: application/package_info.class(in = 333) (out= 260)(deflated 21%)
+adding: resources/(in = 0) (out= 0)(stored 0%)
+adding: resources/application.properties(in = 518) (out= 219)(deflated 57%)
+adding: resources/log4j2.properties(in = 2253) (out= 706)(deflated 68%)
+updated module-info: module-info.class
+done.
+
+javadoc -d docs $(eval echo $JDK_JAVADOC_OPTIONS) \
+  $(find src -type d | sed -e 's/^src[\/]*//' -e 's/\//./g')
+Loading source files for package application...
+Constructing Javadoc information...
+Creating destination directory: "docs\"
+Building index for all the packages and classes...
+Standard Doclet version 21+35-LTS-2513
+Building tree for all the packages and classes...
+Generating docs\se1.play\application\Application.html...
+Generating docs\se1.play\application\Runtime.html...
+Generating docs\se1.play\application\Runtime.Run.html...
+Generating docs\se1.play\application\Runtime.Runnable.html...
+Generating docs\se1.play\application\package-summary.html...
+Generating docs\se1.play\application\package-tree.html...
+Generating docs\se1.play\module-summary.html...
+Generating docs\overview-tree.html...
+Building index for all classes...
+Generating docs\allclasses-index.html...
+Generating docs\allpackages-index.html...
+Generating docs\index-all.html...
+Generating docs\search.html...
+Generating docs\index.html...
+Generating docs\help-doc.html...
+done.
+
+Hello, "SE-1 Play" (application.Application)
+- arg: Müller, Lena
+- arg: Meyer, Eric
+- arg: Blumenfeld, Nadine-Ulla
+
+[INFO ] 2024-10-05 23:46:53.413 [main] Runtime - loaded logger configuration from jar: "resources/log4j2.properties"
+[INFO ] 2024-10-05 23:46:53.416 [main] Runtime - Runtime.started
+[INFO ] 2024-10-05 23:46:53.419 [main] Runtime - found 11 resources in: "bin/application-1.0.0-SNAPSHOT.jar"
+[INFO ] 2024-10-05 23:46:53.425 [main] Runtime - 2 runnable classes found
+[INFO ] 2024-10-05 23:46:53.431 [main] Runtime - runnable instance created: "application.Application"
+[INFO ] 2024-10-05 23:46:53.431 [main] Runtime - runnable instance started: "application.Application.run(properties, args[])"
+[INFO ] 2024-10-05 23:46:53.432 [main] Runtime - Runtime.shuttingDown
+[INFO ] 2024-10-05 23:46:53.432 [main] Runtime - Runtime.shutDown ------------
