@@ -2,6 +2,9 @@ package numbers;
 
 import java.util.*;
 
+import application.Runtime;
+import application.Runtime.Run;
+
 
 /**
  * Class implements the {@link Numbers} interface and the
@@ -19,7 +22,8 @@ import java.util.*;
  *  - {@code Set<Set<Integer>> findAllSums(int[] numbers, int sum);}
  * </pre>
  */
-public class NumbersImpl implements Numbers {
+@Run(priority=10)
+public class NumbersImpl implements Numbers, Runtime.Runnable {
 
     /*
      * Numbers with negative numbers and duplicates.
@@ -58,6 +62,12 @@ public class NumbersImpl implements Numbers {
      */
     public NumbersImpl() { }
 
+
+    @Override
+    public void run(Properties properties, String[] args) {
+        NumbersDriver driver = new NumbersDriver(this);
+        driver.run(properties, args);
+    }
 
     /**
      * Aufgabe 1.) Calculate sum of numbers[].

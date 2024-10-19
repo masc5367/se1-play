@@ -4,27 +4,36 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 import application.Runtime;
-import application.Runtime.Run;
 import numbers.Numbers.Pair;
 
 
 /**
- * Class implements the driver to run numbers calculations from
- * the command line.
+ * Driver class to run numbers calculations from the command line.
+ * 
  */
-@Run(priority=10)
-public class NumbersDriver implements Runtime.Runnable {
+public class NumbersDriver {
+
+    /*
+     * Object used for calculations that implements the {@link Numbers} interface.
+     */
+    private final Numbers numbers;
+
 
     /**
-     * Default constructor (required by Javadoc).
+     * Constructor with injected {@link Numbers} instance.
+     * @param numbers
      */
-    public NumbersDriver() { }
-
+    public NumbersDriver(Numbers numbers) {
+        this.numbers = numbers;
+    }
 
     /**
-     * {@inheritDoc}
+     * Method invoked by the {@link Runtime} system to launch calculations
+     * passed from the commandline through {@code args[]}.
+     * @param properties properties extracted from the
+     *          {@code application.properties} file
+     * @param args arguments passed from command line
      */
-    @Override
     public void run(Properties properties, String[] args) {
         System.out.println(String.format("%s called.", this.getClass().getSimpleName()));
 
@@ -85,61 +94,65 @@ public class NumbersDriver implements Runtime.Runnable {
         case "numb_3": narr = NumbersImpl.numb_3; break;
         default: return;
         }
-        Numbers numbers = null;
-        int res=0; String text="";
-        switch(f) {
-        case "sum":
-            // int sum(int[] numbers);
-            res = numbers.sum(narr);
-            text = String.format("%s(%s) -> %d", f, n, res);
-            break;
+        var bean = Runtime.getInstance().getBean(Numbers.class);
+        if(bean.isPresent()) {
+            int res=0; String text="";
+            switch(f) {
+            case "sum":
+                // int sum(int[] numbers);
+                res = numbers.sum(narr);
+                text = String.format("%s(%s) -> %d", f, n, res);
+                break;
 
-        case "sum_positive_even_numbers":
-            // int sum_positive_even_numbers(int[] numbers);
-            res = numbers.sum_positive_even_numbers(narr);
-            text = String.format("%s(%s) -> %d", f, n, res);
-            break;
+            case "sum_positive_even_numbers":
+                // int sum_positive_even_numbers(int[] numbers);
+                res = numbers.sum_positive_even_numbers(narr);
+                text = String.format("%s(%s) -> %d", f, n, res);
+                break;
 
-        case "sum_recursive":
-            // int sum_recursive(int[] numbers, int i);
-            res = numbers.sum_recursive(narr, 0);
-            text = String.format("%s(%s) -> %d", f, n, res);
-            break;
+            case "sum_recursive":
+                // int sum_recursive(int[] numbers, int i);
+                res = numbers.sum_recursive(narr, 0);
+                text = String.format("%s(%s) -> %d", f, n, res);
+                break;
 
-        case "findFirst":
-            // int findFirst(int[] numbers, int x);
-            res = numbers.findFirst(narr, x);
-            text = String.format("%s(%s, x=%d) -> %d", f, n, x, res);
-            break;
+            case "findFirst":
+                // int findFirst(int[] numbers, int x);
+                res = numbers.findFirst(narr, x);
+                text = String.format("%s(%s, x=%d) -> %d", f, n, x, res);
+                break;
 
-        case "findLast":
-            // int findLast(int[] numbers, int x);
-            res = numbers.findLast(narr, x);
-            text = String.format("%s(%s, x=%d) -> %d", f, n, x, res);
-            break;
+            case "findLast":
+                // int findLast(int[] numbers, int x);
+                res = numbers.findLast(narr, x);
+                text = String.format("%s(%s, x=%d) -> %d", f, n, x, res);
+                break;
 
-        case "findAll":
-            // List<Integer> findAll(int[] numbers, int x);
-            List<Integer> res2 = numbers.findAll(narr, x);
-            text = String.format("%s(%s, x=%d) -> %s", f, n, x, res2);
-            break;
+            case "findAll":
+                // List<Integer> findAll(int[] numbers, int x);
+                List<Integer> res2 = numbers.findAll(narr, x);
+                text = String.format("%s(%s, x=%d) -> %s", f, n, x, res2);
+                break;
 
-        case "findSums":
-            // Set<Pair> findSums(int[] numbers, int sum);
-            var res3 = numbers.findSums(narr, sum);
-            String res3Str = prettyPrintPairs(res3);
-            text = String.format("%s(%s, sum=%d) -> %d", f, n, x, res3Str);
-            break;
+            case "findSums":
+                // Set<Pair> findSums(int[] numbers, int sum);
+                var res3 = numbers.findSums(narr, sum);
+                String res3Str = prettyPrintPairs(res3);
+                text = String.format("%s(%s, sum=%d) -> %d", f, n, x, res3Str);
+                break;
 
-        case "findAllSums":
-            // Set<Set<Integer>> findAllSums(int[] numbers, int sum);
-            var res4 = numbers.findAllSums(narr, sum);
-            String res4Str = prettyPrintNumberSet(res4);
-            text = String.format("%s(%s, sum=%d) -> %d", f, n, x, res4Str);
-            break;
-        }
-        if(text.length() > 0) {
-            System.out.println(String.format(" --> %s", text));
+            case "findAllSums":
+                // Set<Set<Integer>> findAllSums(int[] numbers, int sum);
+                var res4 = numbers.findAllSums(narr, sum);
+                String res4Str = prettyPrintNumberSet(res4);
+                text = String.format("%s(%s, sum=%d) -> %d", f, n, x, res4Str);
+                break;
+            }
+            if(text.length() > 0) {
+                System.out.println(String.format(" --> %s", text));
+            }
+        } else {
+            System.out.println(String.format("no instance found for: %s", Numbers.class.getSimpleName()));
         }
     }
 
