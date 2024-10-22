@@ -16,13 +16,13 @@ Code and JUnit-tests must work in the IDE and in the terminal.
 
 Steps:
 
-1. [Understand the Project Structure](#1-understand-the-project-structure)
+1. [Project Structure](#1-project-structure)
 
-1. [Setup and Project Build](#2-setup-and-project-build)
+1. [*Setup* and *Build* Project](#2-setup-and-build-project)
 
 1. [Implement *sum()*](#3-implement-sum)
 
-1. [Test Functions](#4-test-functions)
+1. [*JUnit*-Tests](#4-junit---tests)
 
 1. [Implement *Numbers*-Functions](#5-implement-numbers-functions)
 
@@ -31,7 +31,7 @@ Steps:
 
 &nbsp;
 
-## 1. Understand the Project Structure
+## 1. Project Structure
 
 The *Numbers*-project is assembled from three parts:
 
@@ -80,7 +80,7 @@ The project content assembled from the three branches is:
 
 &nbsp;
 
-## 2. Setup and Project Build
+## 2. *Setup* and *Build* Project
 
 *Setup* of the project is assembling content from branches:
 
@@ -279,7 +279,7 @@ done.
 
 &nbsp;
 
-## 4. Test Functions
+## 4. *JUnit* - Tests
 
 After `sum(int[] numbers)` has been implemented, *JUnit*-tests can verify
 its correct function.
@@ -297,9 +297,9 @@ Install from branch
 [*b1-numbers-tests*](../../tree/b1-numbers-tests/tests/numbers)
 files (only these two):
 
-- [Matchers.java](../../tree/b1-numbers-tests/tests/numbers/Matchers.java)
+- [*Matchers.java*](../../tree/b1-numbers-tests/tests/numbers/Matchers.java)
 
-- [Numbers_1_sum_Tests.java](../../tree/b1-numbers-tests/tests/numbers/Numbers_1_sum_Tests.java)
+- [*Numbers_1_sum_Tests.java*](../../tree/b1-numbers-tests/tests/numbers/Numbers_1_sum_Tests.java)
 
 into the proper place in the project (under: *tests/numbers* ).
 
@@ -372,7 +372,7 @@ Goal of this part is to implement all functions, one after another:
 
 
 Interface: [*Numbers.java*](src/numbers/Numbers.java) defines
-eight functions.
+eight functions:
 
 ```java
 /**
@@ -469,7 +469,7 @@ done.
 ```
 
 Install the *JUnit*-test for the function
-[*Numbers_2_sum_positive_even_Tests.java*](../../tree/b1-numbers-tests/tests/numbers/Numbers_2_sum_positive_even_Tests)
+[*Numbers_2_sum_positive_even_Tests.java*](../../tree/b1-numbers-tests/tests/numbers/Numbers_2_sum_positive_even_Tests.java)
 and run the test:
 
 ```sh
@@ -877,7 +877,7 @@ Output shows 800(a)'s tests passing:
 
 ### 9. *findAllSums(), XXL*
 
-Array `numb_2` with `24` numbers is still small.
+Array `numb_2[]` with `24` numbers is still small.
 
 ```java
 /*
@@ -885,7 +885,7 @@ Array `numb_2` with `24` numbers is still small.
  */
 static final int[] numb_2 = {   // 24 numbers
     371,  682,  446,  754,  205,  972,  600,  163,  541,  672,
-        27,  170,  226,    7,  190,  639,   87,  773,  651,  370,
+     27,  170,  226,    7,  190,  639,   87,  773,  651,  370,
     125,  774,  903,  636//,225,  463,  286,  569,  384,    9,
 }; // add more numbers to find more solutions
 ```
@@ -948,13 +948,13 @@ More solutions are found with the new numbers `225` und `463`:
 
 Incrementally add more numbers to `numb_2[]` and repeat:
 
-- plus `286` --> 19 solutions,
+- add number `286` --> 19 solutions,
 
-- plus `569` --> 21 solutions,
+- add number `569` --> 21 solutions,
 
-- plus `384` --> 24 solutions,
+- add number `384` --> 24 solutions,
 
-- plus `9` --> 44 solutions:
+- add number `9` --> 44 solutions:
 
 ```
 -> findAllSums(sum=999, numb_2) -> [
