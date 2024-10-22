@@ -35,25 +35,34 @@ public class Numbers_8b_find_all_sums_XL_Tests {
     }
 
     // numb_2[]
-    final int[] nbr_2 = NumbersImpl.numb_2;
+    final int[] nbr_2 = limit(NumbersImpl.numb_2, 24);
 
     // numb_2[] + 225
-    final int[] nbr_2_225 = addNumbers(NumbersImpl.numb_2, 225);
+    final int[] nbr_2_225 = addNumbers(nbr_2, 225);
 
     // numb_2[] + 225 + 463
-    final int[] nbr_2_225_463 = addNumbers(NumbersImpl.numb_2, 225, 463);
+    final int[] nbr_2_225_463 = addNumbers(nbr_2, 225, 463);
 
     // numb_2[] + 225 + 463 + 286
-    final int[] nbr_2_225_463_286 = addNumbers(NumbersImpl.numb_2, 225, 463, 286);
+    final int[] nbr_2_225_463_286 = addNumbers(nbr_2, 225, 463, 286);
 
     // numb_2[] + 225 + 463 + 286 + 596
-    final int[] nbr_2_225_463_286_569 = addNumbers(NumbersImpl.numb_2, 225, 463, 286, 569);
+    final int[] nbr_2_225_463_286_569 = addNumbers(nbr_2, 225, 463, 286, 569);
 
     // numb_2[] + 225 + 463 + 286 + 596 + 384
-    final int[] nbr_2_225_463_286_569_384 = addNumbers(NumbersImpl.numb_2, 225, 463, 286, 569, 384);
+    final int[] nbr_2_225_463_286_569_384 = addNumbers(nbr_2, 225, 463, 286, 569, 384);
 
     // numb_1[] + 225 + 463 + 286 + 596 + 384 + 9 = 30 numbers
-    final int[] nbr_2_225_463_286_569_384_9 = addNumbers(NumbersImpl.numb_2, 225, 463, 286, 569, 384, 9);
+    final int[] nbr_2_225_463_286_569_384_9 = addNumbers(nbr_2, 225, 463, 286, 569, 384, 9);
+
+    // numb_3[]
+    final int[] nbr_3 = NumbersImpl.numb_3;
+
+    private static int[] limit(int arr[], int limit) {
+        List<Integer> arrL = new ArrayList<>();
+        Collections.addAll(arrL, Arrays.stream(arr).boxed().limit(limit).toArray(Integer[]::new));
+        return arrL.stream().mapToInt(Integer::intValue).toArray();
+    }
 
     private static int[] addNumbers(int arr[], int... args) {
         List<Integer> arrL = new ArrayList<>();
@@ -68,7 +77,7 @@ public class Numbers_8b_find_all_sums_XL_Tests {
     @Test
     @Order(824)
     void test824_find_all_sums_XL_24_numbers() {
-        var actual = testObj.findAllSums(NumbersImpl.numb_2, 999);
+        var actual = testObj.findAllSums(nbr_2, 999);
         //System.out.println(Matchers.toString(actual));
         int[][] expected = {
             {27, 972},
@@ -299,6 +308,41 @@ public class Numbers_8b_find_all_sums_XL_Tests {
             {384, 87, 7, 9, 170, 27, 125, 190}
         };
         assertEquals(44, actual.size());    // 44 solutions with 30 numbers
+        assertTrue(Matchers.matchIgnoreOrder(expected, actual));
+    }
+
+    @Test
+    @Order(840)
+    void test840_find_all_sums_XL_numb_3_999() {
+        var actual = testObj.findAllSums(nbr_3, 999);
+        int[][] expected = {
+            {521, 463, 15},
+            {500, 36, 463},
+            {36, 7, 493, 463},
+            {498, 408, 78, 15},
+            {498, 23, 463, 15},
+            {23, 440, 521, 15},
+            {500, 36, 23, 440},
+            {36, 485, 463, 15},
+            {36, 23, 7, 440, 493},
+            {36, 485, 23, 440, 15}
+        };
+        assertEquals(10, actual.size());    // 10 solutions for sum=999 with numb_3[]
+        assertTrue(Matchers.matchIgnoreOrder(expected, actual));
+    }
+
+    @Test
+    @Order(841)
+    void test841_find_all_sums_XL_numb_3_1000() {
+        var actual = testObj.findAllSums(nbr_3, 1000);
+        int[][] expected = {
+            {500, 7, 493},
+            {500, 485, 15},
+            {485, 7, 493, 15},
+            {36, 408, 78, 463, 15},
+            {36, 23, 408, 440, 78, 15}
+        };
+        assertEquals(5, actual.size());    // 5 solutions for sum=1000 with numb_3[]
         assertTrue(Matchers.matchIgnoreOrder(expected, actual));
     }
 }
