@@ -7,10 +7,10 @@ import application.Runtime.Run;
 
 
 /**
- * Class implements the {@link Numbers} interface and the
- * {@link Runtime.Runnable} interface.
+ * Implementation class of the {@link Numbers} and {@link Runtime.Runnable}
+ * interfaces.
  * <p>
- * Complete functions:
+ * The {@link Numbers} interface defines methods:
  * <pre>
  *  - int sum(int[] numbers);
  *  - int sum_positive_even_numbers(int[] numbers);
@@ -63,15 +63,8 @@ public class NumbersImpl implements Numbers, Runtime.Runnable {
     public NumbersImpl() { }
 
 
-    @Override
-    public void run(Properties properties, String[] args) {
-        NumbersDriver driver = new NumbersDriver(this);
-        driver.run(properties, args);
-    }
-
     /**
      * Aufgabe 1.) Calculate sum of numbers[].
-     * 
      * @param numbers input
      * @return sum of numbers[]
      */
@@ -82,7 +75,6 @@ public class NumbersImpl implements Numbers, Runtime.Runnable {
 
     /**
      * Aufgabe 2.) Calculate sum of positive even numbers[].
-     * 
      * @param numbers input
      * @return sum of positive even numbers[]
      */
@@ -94,7 +86,6 @@ public class NumbersImpl implements Numbers, Runtime.Runnable {
     /**
      * Aufgabe 3.) Calculate sum of numbers[] recursively without using loops
      * (for, while, do/while).
-     * 
      * @param numbers input numbers
      * @param i start index, calculate sum from index i in numbers[]
      * @return sum of numbers[]
@@ -107,7 +98,6 @@ public class NumbersImpl implements Numbers, Runtime.Runnable {
     /**
      * Aufgabe 4.) Return index of first occurrence of x in numbers[]
      * or return -1 if x was not found.
-     * 
      * @param numbers input
      * @param x number to find
      * @return index of first occurrence of x in numbers[] or -1 if not found
@@ -120,7 +110,6 @@ public class NumbersImpl implements Numbers, Runtime.Runnable {
     /**
      * Aufgabe 5.) Return index of last occurrence of x in numbers[]
      * or return -1 if x was not found.
-     * 
      * @param numbers input
      * @param x number to find
      * @return index of last occurrence of x in numbers[] or -1 if not found
@@ -133,7 +122,6 @@ public class NumbersImpl implements Numbers, Runtime.Runnable {
     /**
      * Aufgabe 6.) Return list of all indices of number x in numbers[].
      * Return empty list, if x was not found.
-     * 
      * @param numbers input
      * @param x number to find
      * @return list with all indices of x in numbers[]
@@ -148,7 +136,6 @@ public class NumbersImpl implements Numbers, Runtime.Runnable {
      * Aufgabe 7.) Return all pairs (a, b) in numbers[] with a + b = sum with
      * consolidating mirror copies such as (a, b) and (b, a) by returning
      * either (a, b) or (b, a), not both.
-     * 
      * @param numbers input
      * @param sum to find
      * @return Set of all Pairs (a, b) that add to sum
@@ -161,7 +148,6 @@ public class NumbersImpl implements Numbers, Runtime.Runnable {
 
     /**
      * Aufgabe 8.) Find all combinations of numbers in numbers[] that add to sum.
-     * 
      * @param numbers input
      * @param sum to find
      * @return set of all combinations of numbers that add to sum or empty list
@@ -170,5 +156,17 @@ public class NumbersImpl implements Numbers, Runtime.Runnable {
     public Set<Set<Integer>> findAllSums(int[] numbers, int sum) {
         Set<Set<Integer>> result = new HashSet<>();
         return result;
+    }
+
+    /**
+     * Method of the {@link Runtime.Runnable} interface called on an instance
+     * created by the {@link Runtime}. Program execution starts here.
+     * @param properties properties from the {@code application.properties} file
+     * @param args arguments passed from the command line
+     */
+    @Override
+    public void run(Properties properties, String[] args) {
+        NumbersDriver driver = new NumbersDriver(this);
+        driver.run(properties, args);
     }
 }
