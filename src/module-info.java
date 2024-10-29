@@ -14,6 +14,7 @@
 module se1.play {
     opens application;
     exports application;                // export application package to enable Javadoc
+    opens streams;                      // opens is needed for stream
     exports streams;                    // export numbers package to enable Javadoc
 
     requires org.junit.jupiter.api;         // JUnit-5 module required for testing
