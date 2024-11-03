@@ -22,12 +22,11 @@ public class Numbers_1_sum_Tests {
     /**
      * Static setup method executed once for all tests. Creates
      * the test object.
-     * 
-     * @throws Exception creation of tested object failed
+     * @throws Exception when test creation fails
      */
     @BeforeAll
-    public static void setUpBeforeClass() throws Exception {
-        testObj = Runtime.getInstance().getBean(Numbers.class)
+    public static void setUpBeforeTests() throws Exception {
+        testObj = Runtime.getBean(Numbers.class)
             .orElseThrow(() -> new Exception(String.format(
                 "no test object for: %s", Numbers.class.getName())));
     }

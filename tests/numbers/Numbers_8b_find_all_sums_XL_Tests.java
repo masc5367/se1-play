@@ -20,20 +20,6 @@ public class Numbers_8b_find_all_sums_XL_Tests {
      */
     private static Numbers testObj;
 
-
-    /**
-     * Static setup method executed once for all tests. Creates
-     * the test object.
-     * 
-     * @throws Exception is creation of test object fails
-     */
-    @BeforeAll
-    public static void setUpBeforeClass() throws Exception {
-        testObj = Runtime.getInstance().getBean(Numbers.class)
-            .orElseThrow(() -> new Exception(String.format(
-                "no test object for: %s", Numbers.class.getName())));
-    }
-
     // numb_2[]
     final int[] nbr_2 = limit(NumbersImpl.numb_2, 24);
 
@@ -58,13 +44,14 @@ public class Numbers_8b_find_all_sums_XL_Tests {
     // numb_3[]
     final int[] nbr_3 = NumbersImpl.numb_3;
 
-    private static int[] limit(int arr[], int limit) {
+
+    private int[] limit(int arr[], int limit) {
         List<Integer> arrL = new ArrayList<>();
         Collections.addAll(arrL, Arrays.stream(arr).boxed().limit(limit).toArray(Integer[]::new));
         return arrL.stream().mapToInt(Integer::intValue).toArray();
     }
 
-    private static int[] addNumbers(int arr[], int... args) {
+    private int[] addNumbers(int arr[], int... args) {
         List<Integer> arrL = new ArrayList<>();
         List<Integer> argsL = new ArrayList<>();
         Collections.addAll(arrL, Arrays.stream(arr).boxed().toArray(Integer[]::new));
@@ -73,6 +60,17 @@ public class Numbers_8b_find_all_sums_XL_Tests {
         return arrL.stream().mapToInt(Integer::intValue).toArray();
     }
 
+    /**
+     * Static setup method executed once for all tests. Creates
+     * the test object.
+     * @throws Exception when test creation fails
+     */
+    @BeforeAll
+    public static void setUpBeforeTests() throws Exception {
+        testObj = Runtime.getBean(Numbers.class)
+            .orElseThrow(() -> new Exception(String.format(
+                "no test object for: %s", Numbers.class.getName())));
+    }
 
     @Test
     @Order(824)
