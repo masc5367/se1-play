@@ -3,7 +3,7 @@ package numbers;
 import java.util.*;
 
 import application.Runtime;
-import application.Runtime.Run;
+import application.Runtime.Bean;
 
 
 /**
@@ -22,7 +22,7 @@ import application.Runtime.Run;
  *  - {@code Set<Set<Integer>> findAllSums(int[] numbers, int sum);}
  * </pre>
  */
-@Run(priority=10)
+@Bean(priority=10)
 public class NumbersImpl implements Numbers, Runtime.Runnable {
 
     /*
