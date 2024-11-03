@@ -1,6 +1,6 @@
 package application;
 
-import application.Runtime.Run;
+import application.Runtime.Bean;
 
 import java.util.*;
 
@@ -15,7 +15,7 @@ import org.slf4j.LoggerFactory;
  * @version <code style=color:green>{@value application.package_info#Version}</code>
  * @author <code style=color:blue>{@value application.package_info#Author}</code>
  */
-@Run(priority=1)
+@Bean(priority=1)
 public class Application implements Runtime.Runnable {
 
     /*
@@ -73,6 +73,6 @@ public class Application implements Runtime.Runnable {
      * @param args arguments passed from command line
      */
     public static void main(String[] args) {
-        Runtime.getInstance().start(args);
+        Runtime.run(args);
     }
 }
