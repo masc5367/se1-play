@@ -39,22 +39,22 @@ public class Streams_4_filteredNumbers_Tests {
         //
         .stream().collect(Collectors.toSet());
 
-    /**
-     * Static setup method executed once for all tests. Creates
-     * the test object.
-     * 
-     * @throws Exception is creation of test object fails
-     */
-    @BeforeAll
-    public static void setUpBeforeClass() throws Exception {
-        testObj = Runtime.getInstance().getBean(Streams.class)
-            .orElseThrow(() -> new Exception(String.format(
-                "no test object for: %s", Streams.class.getName())));
-    }
-
     private String even = "even";
     private String div3 = "div3";
     private String prime3 = "prime3";
+
+
+    /**
+     * Static setup method executed once for all tests. Creates
+     * the test object.
+     * @throws Exception when test creation fails
+     */
+    @BeforeAll
+    public static void setUpBeforeClass() throws Exception {
+        testObj = Runtime.getBean(Streams.class)
+            .orElseThrow(() -> new Exception(String.format(
+                "no test object for: %s", Streams.class.getName())));
+    }
 
     @Test
     @Order(400)

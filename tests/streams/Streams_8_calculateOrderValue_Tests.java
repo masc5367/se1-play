@@ -18,15 +18,15 @@ public class Streams_8_calculateOrderValue_Tests {
 
     private final long orderValue = 20562L;
 
+
     /**
      * Static setup method executed once for all tests. Creates
      * the test object.
-     * 
-     * @throws Exception is creation of test object fails
+     * @throws Exception when test creation fails
      */
     @BeforeAll
     public static void setUpBeforeClass() throws Exception {
-        testObj = Runtime.getInstance().getBean(Streams.class)
+        testObj = Runtime.getBean(Streams.class)
             .orElseThrow(() -> new Exception(String.format(
                 "no test object for: %s", Streams.class.getName())));
     }

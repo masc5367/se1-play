@@ -17,15 +17,15 @@ public class Streams_9_sortByOrderValue_Tests {
      */
     private static Streams testObj;
 
+
     /**
      * Static setup method executed once for all tests. Creates
      * the test object.
-     * 
-     * @throws Exception is creation of test object fails
+     * @throws Exception when test creation fails
      */
     @BeforeAll
     public static void setUpBeforeClass() throws Exception {
-        testObj = Runtime.getInstance().getBean(Streams.class)
+        testObj = Runtime.getBean(Streams.class)
             .orElseThrow(() -> new Exception(String.format(
                 "no test object for: %s", Streams.class.getName())));
     }
