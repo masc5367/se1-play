@@ -5,7 +5,7 @@ import java.util.function.Function;
 import java.util.stream.Stream;
 
 import application.Runtime;
-import application.Runtime.Run;
+import application.Runtime.Bean;
 
 
 /**
@@ -25,7 +25,7 @@ import application.Runtime.Run;
  *  - List<Order> sortOrdersByValue(List<Order> orders);
  * </pre>
  */
-@Run(priority=20)
+@Bean(priority=20)
 public class StreamsImpl implements Streams, Runtime.Runnable {
 
     /*
