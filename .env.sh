@@ -287,10 +287,10 @@ function cmd() {
                 "unset -f leave cmd show make copy javac_version coverage_report; \\"
                 "unalias mk build wipe clean"
             ) ;;
-    wipe)   # wipe environment and clear project of all generated files
+    wipe)   # wipe environment and clear project of all generated files (keep libs link)
             local wipe_files=( .project .classpath .vscode/.classpath )
             cmd=("([ \"$PROJECT_PATH\" ] && builtin cd \"$PROJECT_PATH\"; \\"
-                    "rm -rf ${wipe_files[@]}; $(cmd clean $2); [ -L libs ] && rm libs; \\"
+                    "rm -rf ${wipe_files[@]}; $(cmd clean $2); [ ! -L libs ] && rm libs; \\"
                 "); mk wipe-env --silent >/dev/null"
             ) ;;
     esac
