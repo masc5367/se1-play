@@ -485,6 +485,15 @@ mk compile compile-tests run-tests coverage jar javadoc
 mk clean build
 ```
 
+Command `mk build` shows the finally built artefact, which is
+`application-1.0.0-SNAPSHOT.jar` in the `bin` directory:
+
+```
+final product artefact built:
+-rw-r--r-- 1 svgr2 Kein 14927 Nov 16 21:31 bin/application-1.0.0-SNAPSHOT.jar
+done.
+```
+
 
 &nbsp;
 
