@@ -18,13 +18,13 @@ import org.slf4j.LoggerFactory;
 @Bean(priority=1)
 public class Application implements Runtime.Runnable {
 
-    /*
+    /**
      * Logger instance for this class.
      */
     final Logger log = LoggerFactory.getLogger(Application.class);
 
     /**
-     * None-public default constructor (avoid javadoc warning).
+     * Explicit default constructor (avoid javadoc warning).
      */
     public Application() { }
 
