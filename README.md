@@ -12,6 +12,8 @@ This includes libraries for:
 
 - `logging`: *log4j2* logging library for Java
 
+- `lombok`: library to avoid boilerplate code for Java
+
 - `junit-platform-console-standalone-1.9.2.jar`: JUnit test runner
 
 
@@ -19,6 +21,8 @@ Libraries are organized in folders with *.jar*-files:
 
 ```sh
 <libs>                  # branch directory
+ |
+ +--jars-content.txt    # file with list of .jar files included in <libs>
  |
  +-<jackson>                    # library for processing JSON data in Java
  |  +--jackson-annotations-2.13.0.jar
@@ -38,10 +42,13 @@ Libraries are organized in folders with *.jar*-files:
  +--junit-platform-console-standalone-1.9.2.jar
  |
  +-<logging>                    # log4j2 logging library for Java
-    +--log4j-api-2.23.1.jar
-    +--log4j-core-2.23.1.jar
-    +--log4j-slf4j2-impl-2.23.1.jar
-    +--slf4j-api-2.0.16.jar
+ |  +--log4j-api-2.23.1.jar
+ |  +--log4j-core-2.23.1.jar
+ |  +--log4j-slf4j2-impl-2.23.1.jar
+ |  +--slf4j-api-2.0.16.jar
+ |
+ +-<lombok>                     # lombok library
+    +--lombok-1.18.36.jar
 ```
 
 
@@ -63,7 +70,36 @@ drwxr-xr-x 1       0 Oct  3 19:18 .git/
 -rw-r--r-- 1    1932 Oct  3 19:19 README.md
 drwxr-xr-x 1       0 Oct  3 19:20 jackson/
 drwxr-xr-x 1       0 Oct  3 19:20 jacoco/
+-rw-r--r-- 1     616 Oct  3 19:20 jars-content.txt
 drwxr-xr-x 1       0 Oct  3 19:20 junit/
 -rw-r--r-- 1 2614420 Oct  3 19:20 junit-platform-console-standalone-1.9.2.jar
 drwxr-xr-x 1       0 Oct  3 19:20 logging/
+drwxr-xr-x 1       0 Oct  3 19:20 lombok/
+```
+
+List content of *jar* files:
+
+```sh
+find . -name '*.jar'
+```
+
+The list corresponds to the content of file
+[jars-content.txt](jars-content.txt):
+
+```
+./jackson/jackson-annotations-2.13.0.jar
+./jackson/jackson-core-2.13.0.jar
+./jackson/jackson-databind-2.13.0.jar
+./jacoco/jacocoagent.jar
+./jacoco/jacococli.jar
+./junit/apiguardian-api-1.1.2.jar
+./junit/junit-jupiter-api-5.9.3.jar
+./junit/junit-platform-commons-1.9.3.jar
+./junit/opentest4j-1.2.0.jar
+./junit-platform-console-standalone-1.9.2.jar
+./logging/log4j-api-2.23.1.jar
+./logging/log4j-core-2.23.1.jar
+./logging/log4j-slf4j2-impl-2.23.1.jar
+./logging/slf4j-api-2.0.16.jar
+./lombok/lombok-1.18.36.jar
 ```
